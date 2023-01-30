@@ -57,17 +57,24 @@
 // Task 3 Поросяча латина
 // Поросяча латина – це спосіб шифрування англійських слів. Правила такі:
 // - Якщо слово починається з приголосного звуку, то перший приголосний
-//  або сполучення приголосних переміщуються в кінець слова і додається ay.
+//  або сполучення приголосних переміщуються в кінець слова і додається 'ay'.
 // - Якщо слово починається з голосного звуку, то вкінці просто додається
-//  way.
+//  'way'.
 //  Перекладіть поданий рядок на поросячу латину. Відомо, що при вводі всі
 //  рядки будуть складатись з англійських слів у нижньому регістрі
 
 function translatePigLatin(str) {
-  vowelsLetters = "AEIOU".toLowerCase();
+  const vowelsLetters = "aeiou";
   const chekingLetters = str.split("");
-  for (let i = 0; i < chekingLetters.length; i++) {
-    if (!vowelsLetters.includes(chekingLetters[i])) {
+
+  vowelsLetters.includes(chekingLetters[0])
+    ? (isVowelStart = true)
+    : (isVowelStart = false);
+  isConsonantStart = !isVowelStart;
+  console.log(isVowelStart);
+  console.log(isConsonantStart);
+  for (let i = 1; i < chekingLetters.length; i++) {
+    if (isVowelStart) {
       console.log(chekingLetters[i]);
     }
   }
@@ -80,5 +87,5 @@ translatePigLatin("consonant");
 // translatePigLatin("paragraphs");
 // translatePigLatin("paragraphs");
 // translatePigLatin("glove");
-// translatePigLatin("algorithm");
+translatePigLatin("algorithm");
 // translatePigLatin("eight");
