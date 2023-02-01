@@ -89,20 +89,34 @@ function translatePigLatin(str) {
   if (cutPosition == -1) {
     let result = chekingLetters.join("") + "ay";
     console.log("vowel full, result: ", result);
-    return result
+    return result;
   }
   let result =
     chekingLetters.slice(cutPosition).join("") +
     chekingLetters.slice(0, cutPosition).join("") +
     "ay";
   console.log("ConsonantStart, result: ", result);
-  return result
+  return result;
 }
 
-translatePigLatin("rhythm");
-translatePigLatin("consonant");
-translatePigLatin("california");
-translatePigLatin("paragraphs");
-translatePigLatin("glove");
-translatePigLatin("algorithm");
-translatePigLatin("eight");
+// translatePigLatin("rhythm");
+// translatePigLatin("consonant");
+// translatePigLatin("california");
+// translatePigLatin("paragraphs");
+// translatePigLatin("glove");
+// translatePigLatin("algorithm");
+// translatePigLatin("eight");
+
+// Another solve 
+// function translatePigLatin1(str) {
+//   return console.log(
+//     str.replace(/^[aeiou]\w*/, "$&way").replace(/(^[^aeiou]+)(\w*)/, "$2$1ay")
+//   );
+// }
+// translatePigLatin1("rhythm");
+// translatePigLatin1("consonant");
+// translatePigLatin1("california");
+// translatePigLatin1("paragraphs");
+// translatePigLatin1("glove");
+// translatePigLatin1("algorithm");
+// translatePigLatin1("eight");
