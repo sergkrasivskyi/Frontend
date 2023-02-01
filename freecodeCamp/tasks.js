@@ -64,28 +64,45 @@
 //  рядки будуть складатись з англійських слів у нижньому регістрі
 
 function translatePigLatin(str) {
+  // Голосні
   const vowelsLetters = "aeiou";
+  // перетворюємо строку у масив
   const chekingLetters = str.split("");
-
+  console.log("chekingLetters", chekingLetters);
+  // визначаємо стартову літеру
+  let isVowelStart, isConsonantStart;
   vowelsLetters.includes(chekingLetters[0])
     ? (isVowelStart = true)
     : (isVowelStart = false);
   isConsonantStart = !isVowelStart;
-  console.log(isVowelStart);
-  console.log(isConsonantStart);
-  for (let i = 1; i < chekingLetters.length; i++) {
-    if (isVowelStart) {
-      console.log(chekingLetters[i]);
-    }
+  // console.log(isVowelStart);
+  // console.log(isConsonantStart);
+  // якщо голосна, то відразу видаємо результат
+  if (isVowelStart) {
+    let result = chekingLetters.join("") + "way";
+    console.log("vowel start, result: ", result);
+    return result;
   }
-  // console.log(chekingLetters);
-  return str;
+  // якщо приголосна, то фільтруємо результат
+  let cutPosition = str.search(/[aeiou]/g);
+  console.log("position: ", cutPosition);
+  if (cutPosition == -1) {
+    let result = chekingLetters.join("") + "ay";
+    console.log("vowel full, result: ", result);
+    return result
+  }
+  let result =
+    chekingLetters.slice(cutPosition).join("") +
+    chekingLetters.slice(0, cutPosition).join("") +
+    "ay";
+  console.log("ConsonantStart, result: ", result);
+  return result
 }
 
+translatePigLatin("rhythm");
 translatePigLatin("consonant");
-// translatePigLatin("california");
-// translatePigLatin("paragraphs");
-// translatePigLatin("paragraphs");
-// translatePigLatin("glove");
+translatePigLatin("california");
+translatePigLatin("paragraphs");
+translatePigLatin("glove");
 translatePigLatin("algorithm");
-// translatePigLatin("eight");
+translatePigLatin("eight");
