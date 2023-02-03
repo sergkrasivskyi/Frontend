@@ -63,41 +63,41 @@
 //  Перекладіть поданий рядок на поросячу латину. Відомо, що при вводі всі
 //  рядки будуть складатись з англійських слів у нижньому регістрі
 
-function translatePigLatin(str) {
-  // Голосні
-  const vowelsLetters = "aeiou";
-  // перетворюємо строку у масив
-  const chekingLetters = str.split("");
-  console.log("chekingLetters", chekingLetters);
-  // визначаємо стартову літеру
-  let isVowelStart, isConsonantStart;
-  vowelsLetters.includes(chekingLetters[0])
-    ? (isVowelStart = true)
-    : (isVowelStart = false);
-  isConsonantStart = !isVowelStart;
-  // console.log(isVowelStart);
-  // console.log(isConsonantStart);
-  // якщо голосна, то відразу видаємо результат
-  if (isVowelStart) {
-    let result = chekingLetters.join("") + "way";
-    console.log("vowel start, result: ", result);
-    return result;
-  }
-  // якщо приголосна, то фільтруємо результат
-  let cutPosition = str.search(/[aeiou]/g);
-  console.log("position: ", cutPosition);
-  if (cutPosition == -1) {
-    let result = chekingLetters.join("") + "ay";
-    console.log("vowel full, result: ", result);
-    return result;
-  }
-  let result =
-    chekingLetters.slice(cutPosition).join("") +
-    chekingLetters.slice(0, cutPosition).join("") +
-    "ay";
-  console.log("ConsonantStart, result: ", result);
-  return result;
-}
+// function translatePigLatin(str) {
+//   // Голосні
+//   const vowelsLetters = "aeiou";
+//   // перетворюємо строку у масив
+//   const chekingLetters = str.split("");
+//   console.log("chekingLetters", chekingLetters);
+//   // визначаємо стартову літеру
+//   let isVowelStart, isConsonantStart;
+//   vowelsLetters.includes(chekingLetters[0])
+//     ? (isVowelStart = true)
+//     : (isVowelStart = false);
+//   isConsonantStart = !isVowelStart;
+//   // console.log(isVowelStart);
+//   // console.log(isConsonantStart);
+//   // якщо голосна, то відразу видаємо результат
+//   if (isVowelStart) {
+//     let result = chekingLetters.join("") + "way";
+//     console.log("vowel start, result: ", result);
+//     return result;
+//   }
+//   // якщо приголосна, то фільтруємо результат
+//   let cutPosition = str.search(/[aeiou]/g);
+//   console.log("position: ", cutPosition);
+//   if (cutPosition == -1) {
+//     let result = chekingLetters.join("") + "ay";
+//     console.log("vowel full, result: ", result);
+//     return result;
+//   }
+//   let result =
+//     chekingLetters.slice(cutPosition).join("") +
+//     chekingLetters.slice(0, cutPosition).join("") +
+//     "ay";
+//   console.log("ConsonantStart, result: ", result);
+//   return result;
+// }
 
 // translatePigLatin("rhythm");
 // translatePigLatin("consonant");
