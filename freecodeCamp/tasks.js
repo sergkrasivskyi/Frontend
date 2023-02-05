@@ -120,3 +120,25 @@
 // translatePigLatin1("glove");
 // translatePigLatin1("algorithm");
 // translatePigLatin1("eight");
+
+// task 4
+// 
+// Знайдіть пропущену літеру в переданому діапазоні літер та поверніть її.
+// Якщо у діапазоні наявні всі літери, поверніть undefined.
+
+// function fearNotLetter(str) {
+//   return str;
+// }
+
+fearNotLetter("abce");
+// fearNotLetter("abce") має повертати рядок d.
+// fearNotLetter("abcdefghjklmno") має повертати рядок i.
+// fearNotLetter("stvwx") має повертати рядок u.
+// fearNotLetter("bcdf") має повертати рядок e.
+// fearNotLetter("abcdefghijklmnopqrstuvwxyz") має повертати undefined.
+// Solution
+function fearNotLetter(str) {
+  const fullRange = "abcdefghijklmnopqrstuvwxyz";
+  console.log('x' < 'z');
+  return str;
+}
