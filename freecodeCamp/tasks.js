@@ -107,7 +107,7 @@
 // translatePigLatin("algorithm");
 // translatePigLatin("eight");
 
-// Another solve 
+// Another solve
 // function translatePigLatin1(str) {
 //   return console.log(
 //     str.replace(/^[aeiou]\w*/, "$&way").replace(/(^[^aeiou]+)(\w*)/, "$2$1ay")
@@ -122,7 +122,7 @@
 // translatePigLatin1("eight");
 
 // task 4
-// 
+//
 // Знайдіть пропущену літеру в переданому діапазоні літер та поверніть її.
 // Якщо у діапазоні наявні всі літери, поверніть undefined.
 
@@ -130,7 +130,7 @@
 //   return str;
 // }
 
-fearNotLetter("abce");
+fearNotLetter("abced");
 // fearNotLetter("abce") має повертати рядок d.
 // fearNotLetter("abcdefghjklmno") має повертати рядок i.
 // fearNotLetter("stvwx") має повертати рядок u.
@@ -139,6 +139,34 @@ fearNotLetter("abce");
 // Solution
 function fearNotLetter(str) {
   const fullRange = "abcdefghijklmnopqrstuvwxyz";
-  console.log('x' < 'z');
+  const strToArr = str.split("");
+  let includeStr = "";
+  // let result = strToArr.map((elem) => {
+  //   includeStr = includeStr + elem;
+
+  //   let isInclude = fullRange.includes(includeStr);
+  //   console.log("isInclude: ", isInclude);
+    
+  //   isInclude ? includeStr : (includeStr = includeStr.slice(0, -1));
+  //   console.log("includeStr :", includeStr);
+    
+  //   return includeStr;
+  // });
+  let newRes = strToArr.reduce((includeStr, currentValue) => {
+    // acc = acc + currentValue
+    includeStr = includeStr + currentValue;
+    console.log("acc: ", includeStr);
+
+    let isInclude = fullRange.includes(includeStr);
+    console.log("isInclude: ", isInclude);
+
+    isInclude ? includeStr : (includeStr = includeStr.slice(0, -1));
+    console.log("includeStr :", includeStr);
+
+    return includeStr;
+  }, "");
+
+
+  console.log("result: ", newRes);
   return str;
 }
