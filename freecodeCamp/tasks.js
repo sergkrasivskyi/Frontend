@@ -130,43 +130,32 @@
 //   return str;
 // }
 
-fearNotLetter("abced");
+// fearNotLetter("abce");
 // fearNotLetter("abce") має повертати рядок d.
-// fearNotLetter("abcdefghjklmno") має повертати рядок i.
-// fearNotLetter("stvwx") має повертати рядок u.
-// fearNotLetter("bcdf") має повертати рядок e.
-// fearNotLetter("abcdefghijklmnopqrstuvwxyz") має повертати undefined.
+// fearNotLetter("abcdefghjklmno")
+// має повертати рядок i.
+// fearNotLetter("stvwx") 
+// має повертати рядок u.
+// fearNotLetter("bcdf")
+// має повертати рядок e.
+// fearNotLetter("abcdefghijklmnopqrstuvwxyz")
+//  має повертати undefined.
 // Solution
-function fearNotLetter(str) {
-  const fullRange = "abcdefghijklmnopqrstuvwxyz";
-  const strToArr = str.split("");
-  let includeStr = "";
-  // let result = strToArr.map((elem) => {
-  //   includeStr = includeStr + elem;
+// function fearNotLetter(str) {
+//   const fullRange = "abcdefghijklmnopqrstuvwxyz";
+//   const strToArr = str.split("");
+//   let newRes = strToArr
+//     .reduce((includeStr, currentValue) => {
+//       includeStr = includeStr + currentValue;
+//       let isInclude = fullRange.includes(includeStr);
+//       isInclude ? includeStr : (includeStr = includeStr.slice(0, -1) + " ");
+//       return includeStr;
+//     }, "")
+//     .split(" ")
+//     .join("");
+//   let readySymbolIndex = fullRange.indexOf(newRes) + newRes.length;
+//   console.log("fullRange[readySymbolIndex]: ", fullRange[readySymbolIndex]);
+//   return fullRange[readySymbolIndex];
+// }
 
-  //   let isInclude = fullRange.includes(includeStr);
-  //   console.log("isInclude: ", isInclude);
-    
-  //   isInclude ? includeStr : (includeStr = includeStr.slice(0, -1));
-  //   console.log("includeStr :", includeStr);
-    
-  //   return includeStr;
-  // });
-  let newRes = strToArr.reduce((includeStr, currentValue) => {
-    // acc = acc + currentValue
-    includeStr = includeStr + currentValue;
-    console.log("acc: ", includeStr);
-
-    let isInclude = fullRange.includes(includeStr);
-    console.log("isInclude: ", isInclude);
-
-    isInclude ? includeStr : (includeStr = includeStr.slice(0, -1));
-    console.log("includeStr :", includeStr);
-
-    return includeStr;
-  }, "");
-
-
-  console.log("result: ", newRes);
-  return str;
-}
+// task 4
