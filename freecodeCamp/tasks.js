@@ -167,3 +167,57 @@
 // Унікальні числа повинні бути відсортовані за початковим порядком, але кінцевий
 //  масив не повинен бути відсортованим за числовим порядком.
 // Ознайомтеся з тестами тверджень для прикладу.
+
+function uniteUnique(arr) {
+  const arg = [...arguments]
+  console.log(arg);
+  const result = arg.reduce((acc, currentvalue) => {
+    console.log('acc: ', acc);
+    console.log("currentvalue: ", currentvalue);
+    let toInsert = currentvalue.filter(elem => 
+      !acc.includes(elem)
+    )
+    console.log("insert: ", toInsert);
+    acc = [...acc, ...toInsert];
+    return acc
+  }, [...arg[0]].filter((a, b) => a != b))
+  console.log('result: ', result);
+
+  return result;
+}
+
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) 
+// має повертати [1, 3, 2, 5, 4].
+// uniteUnique([1, 2, 3], [5, 2, 1]) 
+// має повертати [1, 2, 3, 5].
+// uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])
+// має повертати [1, 2, 3, 5, 4, 6, 7, 8].
+// uniteUnique([1, 3, 2], [5, 4], [5, 6]) 
+// має повертати [1, 3, 2, 5, 4, 6].
+uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]) 
+// має повертати [1, 3, 2, 5, 4]
+
+// Task 5
+// Перетворіть символи &, <, >, " (подвійні лапки) та ' (апостроф) 
+// у відповідне позначення символів для HTML.
+
+function convertHTML(str) {
+  
+  return str;
+}
+
+convertHTML("Dolce & Gabbana") 
+// має повертати рядок Dolce &amp; Gabbana.
+convertHTML("Hamburgers < Pizza < Tacos") 
+// має повертати рядок Hamburgers &lt; Pizza &lt; Tacos.
+convertHTML("Sixty > twelve") 
+// має повертати рядок Sixty &gt; twelve.
+convertHTML('Stuff in "quotation marks"') 
+// має повертати рядок Stuff in &quot;quotation marks&quot;.
+convertHTML("Schindler's List") 
+// має повертати рядок Schindler&apos;s List.
+convertHTML("<>") 
+// має повертати рядок &lt;&gt;.
+convertHTML("abc") 
+// має повертати рядок abc
