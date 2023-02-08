@@ -168,56 +168,130 @@
 //  масив не повинен бути відсортованим за числовим порядком.
 // Ознайомтеся з тестами тверджень для прикладу.
 
-function uniteUnique(arr) {
-  const arg = [...arguments]
-  console.log(arg);
-  const result = arg.reduce((acc, currentvalue) => {
-    console.log('acc: ', acc);
-    console.log("currentvalue: ", currentvalue);
-    let toInsert = currentvalue.filter(elem => 
-      !acc.includes(elem)
-    )
-    console.log("insert: ", toInsert);
-    acc = [...acc, ...toInsert];
-    return acc
-  }, [...arg[0]].filter((a, b) => a != b))
-  console.log('result: ', result);
+// function uniteUnique(arr) {
+//   const arg = [...arguments]
+//   console.log(arg);
+//   const result = arg.reduce((acc, currentvalue) => {
+//     console.log('acc: ', acc);
+//     console.log("currentvalue: ", currentvalue);
+//     let toInsert = currentvalue.filter(elem =>
+//       !acc.includes(elem)
+//     )
+//     console.log("insert: ", toInsert);
+//     acc = [...acc, ...toInsert];
+//     return acc
+//   }, [...arg[0]].filter((a, b) => a != b))
+//   console.log('result: ', result);
 
-  return result;
-}
+//   return result;
+// }
 
 // uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
-// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) 
+// uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])
 // має повертати [1, 3, 2, 5, 4].
-// uniteUnique([1, 2, 3], [5, 2, 1]) 
+// uniteUnique([1, 2, 3], [5, 2, 1])
 // має повертати [1, 2, 3, 5].
 // uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])
 // має повертати [1, 2, 3, 5, 4, 6, 7, 8].
-// uniteUnique([1, 3, 2], [5, 4], [5, 6]) 
+// uniteUnique([1, 3, 2], [5, 4], [5, 6])
 // має повертати [1, 3, 2, 5, 4, 6].
-uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]) 
+// uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1])
 // має повертати [1, 3, 2, 5, 4]
 
 // Task 5
-// Перетворіть символи &, <, >, " (подвійні лапки) та ' (апостроф) 
+// Перетворіть символи &, <, >, " (подвійні лапки) та ' (апостроф)
 // у відповідне позначення символів для HTML.
 
-function convertHTML(str) {
-  
-  return str;
-}
+// Solution 1
+// function convertHTML(str) {
+//   let result = [];
+//   // str.includes("&")
+//   //   ? (result = str.replaceAll("&", "&amp;"))
+//   //   : str.includes("<")
+//   //   ? (result = str.replaceAll("<", "&lt;"))
+//   //   : str.includes(">")
+//   //   ? (result = str.replaceAll(">", "&lt;"))
 
-convertHTML("Dolce & Gabbana") 
+//   result = str
+//     .replaceAll("&", "&amp;")
+//     .replaceAll("<", "&lt;")
+//     .replaceAll(">", "&lt;")
+//     .replaceAll("'", "&apos;")
+//     .replaceAll('"', "&quot;");
+//   console.log("result: ", result);
+//   return str;
+// }
+// Solution 2
+// function convertHTML(str) {
+//   const entries = {
+//     "&": "&amp;",
+//     "<": "&lt;",
+//     ">": "&lt;",
+//     "'": "&apos;",
+//     '"': "&quot;",
+//   };
+//   const result = str.split('')
+//   .map((elem ) => {
+//     // console.log("element: ", entries[elem] || elem);
+//     return entries[elem] || elem
+//   })
+//   .join('')
+//   console.log('result: ', result);
+//   return str;
+// }
+
+// convertHTML("Dolce & Gabbana");
 // має повертати рядок Dolce &amp; Gabbana.
-convertHTML("Hamburgers < Pizza < Tacos") 
+// convertHTML("Hamburgers < Pizza < Tacos");
 // має повертати рядок Hamburgers &lt; Pizza &lt; Tacos.
-convertHTML("Sixty > twelve") 
+// convertHTML("Sixty > twelve");
 // має повертати рядок Sixty &gt; twelve.
-convertHTML('Stuff in "quotation marks"') 
+// convertHTML('Stuff in "quotation marks"');
 // має повертати рядок Stuff in &quot;quotation marks&quot;.
-convertHTML("Schindler's List") 
+// convertHTML("Schindler's List");
 // має повертати рядок Schindler&apos;s List.
-convertHTML("<>") 
+// convertHTML("<>");
 // має повертати рядок &lt;&gt;.
-convertHTML("abc") 
+// convertHTML("abc");
 // має повертати рядок abc
+
+// Task 6
+// Сума всіх непарних чисел Фібоначчі
+
+// Маючи додатнє ціле число num, поверніть суму всіх непарних
+// чисел Фібоначчі, які менші чи дорівнюють num.
+// Першими двома числами в послідовності Фібоначчі є 1 та 1.
+// Кожне додаткове число у послідовності є сумою двох попередніх чисел.
+//  Першими шістьма числами в послідовності Фібоначчі є 1, 1, 2, 3, 5 і 8.
+// Наприклад, sumFibs(10) має повертати 10, оскільки всі непарні
+// числа Фібоначчі, які менші або дорівнюють 10 – це 1, 1, 3 і 5.
+//
+let sum = 0;
+let fibArr = [0,1];
+function fibNumbersToArr(num) {
+  if (num > 2) {
+    fibNumbersToArr(num - 1);
+  }
+  // if ((num = 2)) {
+  //   fibArr[1] = 1;
+  // }
+  fibArr[num] = fibArr[num - 1] + fibArr[num - 2] || 0;
+}
+fibNumbersToArr(6);
+console.log("Fib nums arr: ", fibArr);
+function sumFibs(num) {
+  return sum;
+}
+sumFibs(7);
+// sumFibs(1)
+// має повертати число.
+// sumFibs(1000)
+// має повертати 1785.
+// sumFibs(4000000)
+// має повертати 4613732.
+// sumFibs(4)
+//  має повертати 5.
+// sumFibs(75024)
+//  має повертати 60696.
+// sumFibs(75025)
+// має повертати 135721.
