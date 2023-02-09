@@ -277,12 +277,13 @@ function fibNumbersToArr(num) {
   // }
   fibArr[num] = fibArr[num - 1] + fibArr[num - 2] || 0;
 }
-fibNumbersToArr(6);
-console.log("Fib nums arr: ", fibArr);
 function sumFibs(num) {
+  fibNumbersToArr(7);
+  
   return sum;
 }
-sumFibs(7);
+sumFibs(100);
+console.log("Fib nums arr: ", fibArr);
 // sumFibs(1)
 // має повертати число.
 // sumFibs(1000)
